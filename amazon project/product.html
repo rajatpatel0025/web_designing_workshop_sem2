@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+
+    <header class="amazon-header">
+        <div class="nav-top">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-img">amazon</span><span class="logo-domain">.in</span>
+            </a>
+            <div class="nav-delivery">
+                <span class="delivery-row1">Delivering to New Delhi 110005</span>
+                <div class="delivery-row2">📍 <strong>Update location</strong></div>
+            </div>
+            <div class="search-box" style="visibility: hidden; max-width: 10px;"></div>
+            <div class="nav-tools" style="margin-left: auto;">
+                <div class="lang-select">🇮🇳 EN</div>
+                <div class="account-menu">
+                    <span class="sub-text">Hello, sign in</span>
+                    <strong>Account & Lists</strong>
+                </div>
+                <a href="#" class="cart-trigger">
+                    <div class="cart-icon-wrapper">
+                        <span class="cart-count" id="cartCount">0</span>
+                        <strong>Cart</strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="detail-workspace-root">
+        <div class="product-split-wrapper">
+            
+            <div class="panel-left-gallery">
+                <div class="sticky-image-box">
+                    <img id="prodImage" src="" alt="Product Showcase">
+                </div>
+            </div>
+
+            <div class="panel-right-info">
+                <h1 id="prodName" class="item-title-heading">Loading Product Name...</h1>
+                <a href="index.html" class="brand-link-reference">Visit the Storefront</a>
+                
+                <hr class="divider-line">
+                
+                <div class="pricing-matrix-row">
+                    <span class="price-currency-tag">Price:</span>
+                    <span id="prodPrice" class="price-bold-display">₹0.00</span>
+                    <span class="tax-inclusive-lbl">Inclusive of all taxes</span>
+                </div>
+
+                <hr class="divider-line">
+
+                <div class="description-body-container">
+                    <h3>About this item</h3>
+                    <p id="prodDescription">Fetching context description from data array storage index reference point...</p>
+                </div>
+
+                <div class="action-buy-box">
+                    <button class="action-btn checkout-add">Add to Cart</button>
+                    <button class="action-btn checkout-now">Buy Now</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="products.js"></script>
+</body>
+</html>

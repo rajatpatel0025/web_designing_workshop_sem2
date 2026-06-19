@@ -1,0 +1,639 @@
+/* ==========================================================================
+   GLOBAL DESIGN VARIABLES & RESETS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+body {
+    background-color: #e3e6e6;
+    color: #0f1111;
+    transition: background-color 0.25s, color 0.25s;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    background-color: #131a22;
+    color: #f3f3f3;
+}
+
+/* ==========================================================================
+   HEADER NAVIGATION BAR
+   ========================================================================== */
+.amazon-header {
+    display: flex;
+    flex-direction: column;
+    background-color: #131921;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-top {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 12px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    color: white;
+    padding: 4px 8px;
+    border: 1px solid transparent;
+}
+
+.nav-logo:hover, .nav-delivery:hover, .nav-tools > div:hover, .cart-trigger:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+.logo-img {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo-domain {
+    color: #febd69;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.nav-delivery {
+    color: white;
+    padding: 4px 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.delivery-row1 {
+    font-size: 11px;
+    color: #ccc;
+    display: block;
+}
+
+.delivery-row2 {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+/* SEARCH SYSTEM */
+.search-box {
+    display: flex;
+    flex: 1;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 0 0 2px #f90, 0 0 0 3px rgba(255, 153, 0, 0.5);
+}
+
+.search-dropdown {
+    background-color: #f3f3f3;
+    border: none;
+    padding: 0 12px;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    padding: 0 12px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-submit-btn {
+    background-color: #febd69;
+    border: none;
+    width: 45px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.1s;
+}
+
+.search-submit-btn:hover {
+    background-color: #f3a847;
+}
+
+/* TOOLS SEGMENT */
+.nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+}
+
+.nav-tools > div, .cart-trigger {
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.sub-text {
+    font-size: 12px;
+    color: #ccc;
+    display: block;
+}
+
+.nav-tools strong {
+    font-size: 14px;
+    display: block;
+}
+
+.cart-trigger {
+    color: white;
+    text-decoration: none;
+}
+
+.cart-icon-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cart-count {
+    color: #f90;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.theme-toggle-node {
+    background: none;
+    border: 1px solid #555;
+    color: white;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 8px;
+}
+
+/* SUB NAVIGATION BAR */
+.nav-sub-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #232f3e;
+    padding: 0 16px;
+    height: 39px;
+}
+
+.sub-links-left {
+    display: flex;
+    gap: 4px;
+}
+
+.sub-links-left a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 8px;
+    border: 1px solid transparent;
+}
+
+.sub-links-left a:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+.sub-links-right {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   HOMEPAGE VIEWPORT LAYER & CAROUSEL OVERLAY
+   ========================================================================== */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+.slider-control {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 60px;
+    color: #333;
+    cursor: pointer;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+.slider-control:hover {
+    color: black;
+}
+
+.slider-control.prev { left: 10px; }
+.slider-control.next { right: 10px; }
+
+/* ==========================================================================
+   DYNAMIC MULTI-ITEM GRID GRID
+   ========================================================================== */
+.content-shelf {
+    position: relative;
+    max-width: 1500px;
+    margin: -240px auto 0 auto;
+    padding: 0 20px 40px 20px;
+    z-index: 5;
+}
+
+.featured-title, .section-main-heading {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+    padding-left: 5px;
+}
+
+body.dark-mode .featured-title, body.dark-mode .section-main-heading {
+    color: #fff;
+}
+
+.featuredProducts, .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* THE CONTAINER CORE ARCHITECTURE */
+.product-card-container {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 0px;
+    min-height: 420px;
+}
+
+body.dark-mode .product-card-container {
+    background-color: #1a2532;
+}
+
+.product-card-title {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #0f1111;
+}
+
+body.dark-mode .product-card-title {
+    color: white;
+}
+
+/* INTERNAL 2X2 GRID SYSTEM */
+.product-quad-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+    flex-grow: 1;
+}
+
+/* SUB CARD ITEM */
+.quad-item {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #0f1111;
+    cursor: pointer;
+}
+
+body.dark-mode .quad-item {
+    color: #ddd;
+}
+
+.quad-image-wrapper {
+    background-color: #f8f8f8;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 4px;
+}
+
+body.dark-mode .quad-image-wrapper {
+    background-color: #253344;
+}
+
+.quad-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+body.dark-mode .quad-image-wrapper img {
+    mix-blend-mode: normal;
+}
+
+.quad-item h3 {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.4;
+    height: 32px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 2px;
+}
+
+.quad-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #b12704;
+    margin-bottom: 6px;
+}
+
+body.dark-mode .quad-price {
+    color: #ff8f70;
+}
+
+/* SUB CARD INTERACTIVE BUTTONS */
+.btn-group {
+    display: flex;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.btn-cart, .btn-buy {
+    flex: 1;
+    padding: 4px 0;
+    font-size: 11px;
+    border: 1px solid;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.btn-cart {
+    background: #ffd814;
+    border-color: #fcd200;
+}
+
+.btn-cart:hover { background: #f7ca00; }
+
+.btn-buy {
+    background: #ffa41c;
+    border-color: #ff8f00;
+}
+
+.btn-buy:hover { background: #fa8900; }
+
+.card-see-more {
+    font-size: 13px;
+    color: #007185;
+    text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.card-see-more:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   SCROLL UP WIDGET
+   ========================================================================== */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #37475a;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: none;
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    background-color: #485769;
+}
+/* ==========================================================================
+   AMAZON MASTER COMPLIANT FOOTER COMPONENT STYLE SHEET
+   ========================================================================== */
+.nav-footer {
+    width: 100%;
+    background-color: #232f3e;
+    color: white;
+    font-size: 14px;
+    margin-top: 50px;
+    clear: both;
+}
+
+/* LEVEL 1: BACK TO TOP ACTION BAR */
+.footer-back-to-top {
+    background-color: #37475a;
+    text-align: center;
+    transition: background-color 0.1s;
+}
+
+.footer-back-to-top a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 0;
+    font-size: 12px;
+}
+
+.footer-back-to-top:hover {
+    background-color: #485769;
+}
+
+/* LEVEL 2: CORPORATE LINKS GRID LINK GRID */
+.footer-main-links {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+.footer-link-col h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    color: white;
+}
+
+.footer-link-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-link-col ul li a {
+    color: #DDD;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link-col ul li a:hover {
+    text-decoration: underline;
+}
+
+/* LEVEL 3: BRAND SETTINGS ACCENTS LINE */
+.footer-middle-settings {
+    border-top: 1px solid #3a4553;
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.footer-brand-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.footer-brand-logo::after {
+    content: "橙"; /* Decorative positional marker to simulate text baseline arc */
+    color: #ff9900;
+    font-size: 10px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    visibility: hidden;
+}
+
+.settings-picker-group {
+    display: flex;
+    gap: 10px;
+}
+
+.picker-pill {
+    border: 1px solid #848688;
+    border-radius: 3px;
+    padding: 6px 12px;
+    color: #ccc;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.picker-pill:hover {
+    color: white;
+    border-color: white;
+}
+
+.picker-arrow {
+    font-size: 10px;
+    color: #848688;
+}
+
+/* LEVEL 4: DEEP METROPOLITAN SERVICES DIRECTORY MATRIX */
+.footer-deep-services {
+    background-color: #131a22;
+    padding: 40px 20px 30px 20px;
+}
+
+.services-fine-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 40px;
+}
+
+.service-cell a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.service-cell a strong {
+    color: #DDD;
+    font-size: 11px;
+}
+
+.service-cell a:hover {
+    text-decoration: underline;
+}
+
+/* LEVEL 5: STATUTORY POLICIES TEXT LINE */
+.footer-statutory-links {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.footer-statutory-links a {
+    color: #DDD;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-statutory-links a:hover {
+    text-decoration: underline;
+}
+
+/* SCREEN RENDERING RESPONSIVE FIXES */
+@media (max-width: 700px) {
+    .services-fine-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-middle-settings {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

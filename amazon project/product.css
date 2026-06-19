@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    color: #0f1111;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+body.dark-mode {
+    background-color: #131a22;
+    color: #f3f3f3;
+}
+
+.amazon-header {
+    background-color: #131921;
+    padding: 8px 16px;
+    color: white;
+}
+
+.nav-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo-domain { color: #febd69; font-size: 12px; }
+.nav-delivery { font-size: 13px; cursor: pointer; }
+.delivery-row1 { font-size: 11px; color: #ccc; display: block; }
+.nav-tools { display: flex; align-items: center; gap: 20px; }
+.sub-text { font-size: 11px; color: #ccc; display: block; }
+.cart-trigger { color: white; text-decoration: none; }
+.cart-icon-wrapper { display: flex; align-items: center; gap: 5px; }
+.cart-count { color: #f90; font-size: 16px; font-weight: bold; }
+
+.detail-workspace-root {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+.product-split-wrapper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 40px;
+    align-items: start;
+}
+
+.panel-left-gallery {
+    width: 100%;
+}
+
+.sticky-image-box {
+    position: sticky;
+    top: 100px;
+    border: 1px solid #f2f2f2;
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+body.dark-mode .sticky-image-box {
+    background-color: #1a2532;
+    border-color: #253344;
+}
+
+.sticky-image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* RIGHT COLUMN - DATA VIEW STACKS */
+.panel-right-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title-heading {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.brand-link-reference {
+    font-size: 13px;
+    color: #007185;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+.brand-link-reference:hover { text-decoration: underline; }
+.divider-line { border: 0; height: 1px; background: #e7e7e7; margin: 15px 0; }
+body.dark-mode .divider-line { background: #253344; }
+
+/* PRICE TAG COMPONENTS */
+.pricing-matrix-row {
+    margin: 10px 0;
+}
+
+.price-currency-tag { font-size: 14px; color: #565959; margin-right: 6px; }
+body.dark-mode .price-currency-tag { color: #aaa; }
+
+.price-bold-display {
+    font-size: 28px;
+    color: #b12704;
+    font-weight: 400;
+}
+
+body.dark-mode .price-bold-display { color: #ff8f70; }
+.tax-inclusive-lbl { font-size: 13px; color: #565959; display: block; margin-top: 4px; }
+
+/* DETAIL TEXT WRAPPER */
+.description-body-container h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.description-body-container p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+body.dark-mode .description-body-container p { color: #ccc; }
+
+.action-buy-box {
+    margin-top: 30px;
+    background-color: #f7f7f7;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+}
+
+body.dark-mode .action-buy-box {
+    background-color: #1a2532;
+    border-color: #253344;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 12px;
+    border: 1px solid;
+    border-radius: 100px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.checkout-add { background: #ffd814; border-color: #fcd200; }
+.checkout-add:hover { background: #f7ca00; }
+.checkout-now { background: #ffa41c; border-color: #ff8f00; margin-bottom: 0; }
+.checkout-now:hover { background: #fa8900; }
+
+@media (max-width: 900px) {
+    .product-split-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .sticky-image-box {
+        position: relative;
+        top: 0;
+        height: 350px;
+    }
+    .action-buy-box { max-width: 100%; }
+}

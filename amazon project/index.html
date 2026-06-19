@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon.in Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="amazon-header">
+        <div class="nav-top">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-img">amazon</span><span class="logo-domain">.in</span>
+            </a>
+            
+            <div class="nav-delivery">
+                <span class="delivery-row1">Delivering to New Delhi 110005</span>
+                <div class="delivery-row2">
+                    <span class="geo-icon">📍</span>
+                    <strong>Update location</strong>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <select class="search-dropdown">
+                    <option value="all">All</option>
+                </select>
+                <input type="text" placeholder="Search Amazon.in">
+                <button class="search-submit-btn">🔍</button>
+            </div>
+
+            <div class="nav-tools">
+                <div class="lang-select">
+                    <span class="flag-icon">🇮🇳</span> EN
+                </div>
+                <div class="account-menu">
+                    <span class="sub-text">Hello, sign in</span>
+                    <strong>Account & Lists</strong>
+                </div>
+                <div class="orders-menu">
+                    <span class="sub-text">Returns</span>
+                    <strong>& Orders</strong>
+                </div>
+                <a href="#" class="cart-trigger">
+                    <div class="cart-icon-wrapper">
+                        <span class="cart-count" id="cartCount">0</span>
+                        <span class="cart-label">Cart</span>
+                    </div>
+                </a>
+                <button id="darkModeBtn" class="theme-toggle-node">🌙</button>
+            </div>
+        </div>
+
+        <nav class="nav-sub-bar">
+            <div class="sub-links-left">
+                <a href="#" onclick="filterCategory('All')">☰ All</a>
+                <a href="#" onclick="filterCategory('Laptops')">Laptops</a>
+                <a href="#" onclick="filterCategory('Mobiles')">Mobiles</a>
+                <a href="#" onclick="filterCategory('Electronics')">Electronics</a>
+                <a href="#" onclick="filterCategory('Fashion')">Fashion</a>
+                <a href="#" onclick="filterCategory('Appliances')">Appliances</a>
+                <a href="#" onclick="filterCategory('Toys')">Toys</a>
+                <a href="#" onclick="filterCategory('Automotive')">Automotive</a>
+            </div>
+            <div class="sub-links-right">
+                <span class="promo-tag">prime day | 4 - 6 July</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="storefront-container">
+        
+        <div class="hero-carousel">
+            <div class="slide active">
+                <img src="https://cdn.mos.cms.futurecdn.net/HMCWShKerkfeNQmYYhE3p7-1920-80.jpg" alt="Banner 1">
+            </div>
+            <div class="slide">
+                <img src="https://www.shutterstock.com/image-photo/clothes-on-clothing-hanger-600nw-2338282257.jpg" alt="Banner 2">
+            </div>
+            <button class="slider-control prev" onclick="plusSlides(-1)">‹</button>
+            <button class="slider-control next" onclick="plusSlides(1)">›</button>
+        </div>
+
+        <div class="content-shelf">
+            <h2 class="featured-title">⭐️ Featured Today</h2>
+            <section class="featuredProducts"></section>
+
+            <h2 class="section-main-heading">All Products on website</h2>
+            <div id="noResults" style="display: none; text-align: center; width: 100%; padding: 40px; font-size: 18px; font-weight: bold;">
+                No products match your search reference.
+            </div>
+            <section class="products"></section>
+        </div>
+    </main>
+
+    <footer class="nav-footer">
+        
+        <!-- LEVEL 1: BACK TO TOP ACTION ROW -->
+        <div class="footer-back-to-top" id="footerBackToTop">
+            <a href="#top">Back to top</a>
+        </div>
+
+        <!-- LEVEL 2: CORPORATE LINKS LINK GRID -->
+        <div class="footer-main-links">
+            <div class="footer-link-col">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li><a href="#">About Amazon</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press Releases</a></li>
+                    <li><a href="#">Amazon Science</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-col">
+                <h3>Connect with Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-col">
+                <h3>Make Money with Us</h3>
+                <ul>
+                    <li><a href="#">Sell on Amazon</a></li>
+                    <li><a href="#">Sell under Amazon Accelerator</a></li>
+                    <li><a href="#">Protect and Build Your Brand</a></li>
+                    <li><a href="#">Amazon Global Selling</a></li>
+                    <li><a href="#">Supply to Amazon</a></li>
+                    <li><a href="#">Become an Affiliate</a></li>
+                    <li><a href="#">Fulfilment by Amazon</a></li>
+                    <li><a href="#">Advertise Your Products</a></li>
+                    <li><a href="#">Amazon Pay on Merchants</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-col">
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li><a href="#">Your Account</a></li>
+                    <li><a href="#">Returns Centre</a></li>
+                    <li><a href="#">Recalls and Product Safety Alerts</a></li>
+                    <li><a href="#">100% Purchase Protection</a></li>
+                    <li><a href="#">Amazon App Download</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LEVEL 3: MIDDLE BRAND & LOCATION SETTINGS BAR -->
+        <div class="footer-middle-settings">
+            <div class="footer-brand-logo">amazon</div>
+            <div class="settings-picker-group">
+                <div class="picker-pill">
+                    <span class="picker-icon">🌐</span> English <span class="picker-arrow">↕</span>
+                </div>
+                <div class="picker-pill">
+                    <span class="picker-flag">🇮🇳</span> India
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-deep-services">
+            <div class="services-fine-grid">
+                <div class="service-cell">
+                    <a href="#"><strong>AbeBooks</strong><br>Books, art<br>& collectibles</a>
+                </div>
+                <div class="service-cell">
+                    <a href="#"><strong>Amazon Web Services</strong><br>Scalable Cloud<br>Computing Services</a>
+                </div>
+                <div class="service-cell">
+                    <a href="#"><strong>Audible</strong><br>Download<br>Audio Books</a>
+                </div>
+                <div class="service-cell">
+                    <a href="#"><strong>IMDb</strong><br>Movies, TV<br>& Celebrities</a>
+                </div>
+                <div class="service-cell">
+                    <a href="#"><strong>Shopbop</strong><br>Designer<br>Fashion Brands</a>
+                </div>
+                <div class="service-cell">
+                    <a href="#"><strong>Amazon Business</strong><br>Everything For<br>Your Business</a>
+                </div>
+                <div class="service-cell">
+                    <a href="#"><strong>Amazon Music</strong><br>Stream millions of<br>songs</a>
+                </div>
+            </div>
+
+            <div class="footer-statutory-links">
+                <a href="#">Conditions of Use & Sale</a>
+                <a href="#">Privacy Notice</a>
+                <a href="#">Interest-Based Ads</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top">▲ Top</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
